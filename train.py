@@ -115,9 +115,9 @@ def main():
     os.environ["CUDA_VISIBLdE_DEVICES"] = "0"
     # Training settings
     parser = argparse.ArgumentParser(description='Scratch segmentation Example')
-    parser.add_argument('--batch-size', type=int, default=6, metavar='N',
+    parser.add_argument('--batch-size', type=int, default=1, metavar='N',
                         help='input batch size for training (default: 64)')
-    parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
+    parser.add_argument('--test-batch-size', type=int, default=1, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=200, metavar='N',
                         help='number of epochs to train (default: 10)')
@@ -136,8 +136,8 @@ def main():
                         choices=['poly', 'step', 'cos'],
                         help='lr scheduler mode: (default: poly)')
     # PATH Setting
-    parser.add_argument('--train_path', type=str, default="/home/liuq/wind/agriculture/231717_LQ2/data/data512_0.6")
-    parser.add_argument('--label_path', type=str, default="/home/liuq/wind/agriculture/231717_LQ2/data/label512_0.6")
+    parser.add_argument('--train_path', type=str, default="/home/liuq/wind/agriculture/231717_liuq/data/data1024_0.4")
+    parser.add_argument('--label_path', type=str, default="/home/liuq/wind/agriculture/231717_liuq/data/label1024_0.4")
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 

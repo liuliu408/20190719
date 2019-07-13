@@ -42,7 +42,7 @@ def crop_image(number, size=256, ratio=0.7):
 
             _img = img[y1:y2, x1:x2, :3]
             _img_label = img_label[y1:y2, x1:x2]
-            if (_img_label[:, :] == 0).sum() > nullthresh:
+            if (_img_label[:, :] == 0).sum() > nullthresh:   # 利用广播特性，将所有通道的中像素值为0的像素进行累加
                 y1 += unit_size
                 y2 += unit_size
                 continue
