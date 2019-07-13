@@ -15,6 +15,9 @@ score:0.2357
 先将大图切割为512 *512 的小图，然后再依次送入预测！
 score:0.2455
 
-
+##image_3.png
 ![mage](https://github.com/liuliu408/20190719/blob/master/utils/image_3_resize.png)
+
+
+##image_4.png
 ![image](https://github.com/liuliu408/20190719/blob/master/utils/image_4_resize.png)
