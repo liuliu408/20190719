@@ -1,12 +1,12 @@
 参考来源：https://github.com/wzlj/Learning/tree/master/231717
-
+```
 训练数据
 image_1.png ：47161 * 50141, PNG, RGBA
 image_2.png ：77470 * 46050, PNG, RGBA
 测试数据
 image_3.png ：37241 * 19903, PNG, RGBA
 image_4.png ：25936 * 28832, PNG, RGBA
-
+```
 第一次提交：test_submit.py
 直接读取大图，一边取512*512块，一边预测！
 score:0.2357
