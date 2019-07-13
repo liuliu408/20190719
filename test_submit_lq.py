@@ -10,7 +10,7 @@ import time
 np.set_printoptions(threshold=np.inf)  # print not show ...
 Image.MAX_IMAGE_PIXELS = 100000000000
 
-model = tc.load('/home/liuq/wind/agriculture/231717_LQ2/model_train/model200.pth')
+model = tc.load('/home/liuq/wind/agriculture/231717_liuq/model_train/model200.pth')
 
 # 分割预测
 def test(model, src_path, dst_path):
@@ -107,8 +107,8 @@ if __name__ == "__main__":
     model = model.to(device)
 
     for i in range(3, 5):
-        src_path = "/home/liuq/wind/agriculture/231717_LQ2/data/img{}_split_1024".format(i)
-        dst_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/img{}_predict_{}/".format(i,
+        src_path = "/home/liuq/wind/agriculture/231717_liuq/data/img{}_split_1024".format(i)
+        dst_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/img{}_predict_{}/".format(i,
                     time.strftime("%Y-%m-%d", time.localtime()))
 
         if not os.path.exists(dst_path):
@@ -121,9 +121,9 @@ if __name__ == "__main__":
     # --------------------------------------------------------------------------------------------------------
     # 拼接
     for i in range(3, 5):
-        src_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/img{}_predict_{}/".format(i,
+        src_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/img{}_predict_{}/".format(i,
                     time.strftime("%Y-%m-%d", time.localtime()))
-        dst_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/predict_result_img"
+        dst_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/predict_result_img"
 
         if not os.path.exists(dst_path):
             os.mkdir(dst_path)
@@ -141,8 +141,8 @@ if __name__ == "__main__":
     # --------------------------------------------------------------------------------------------------------
     # 可视化
     for i in range(3, 5):
-        src_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/predict_result_img/image_{}_predict.png".format(i)
-        dst_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/predict_result_img/vis_image_{}_predict.png".format(i)
+        src_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/predict_result_img/image_{}_predict.png".format(i)
+        dst_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/predict_result_img/vis_image_{}_predict.png".format(i)
         visualize(src_path, dst_path)
 
     print("可视化结束")

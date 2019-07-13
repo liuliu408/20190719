@@ -51,7 +51,7 @@ def crop_image(number, size=256, ratio=0.7):
             print("\n\n shape of _img_label is  ", _img_label.shape)
             print("\n\n shape of _img is  ", _img.shape)
             _img = Image.fromarray(np.uint8(_img))
-            dst_path = '/home/liuq/wind/agriculture/231717_LQ2/data/data{}_{}/'.format(size, ratio)
+            dst_path = '/home/liuq/wind/agriculture/231717_liuq/data/data{}_{}/'.format(size, ratio)
             if not os.path.exists(dst_path):
                 os.mkdir(dst_path)
             data_path = os.path.join(dst_path, n+'_{}_{}.png'.format(x1, y1))
@@ -60,7 +60,7 @@ def crop_image(number, size=256, ratio=0.7):
             print(_img_label.shape)
             _img_label = Image.fromarray(_img_label).convert('L')
             print(_img_label.size)
-            dst_path = '/home/liuq/wind/agriculture/231717_LQ2/data/label{}_{}/'.format(size, ratio)
+            dst_path = '/home/liuq/wind/agriculture/231717_liuq/data/label{}_{}/'.format(size, ratio)
             if not os.path.exists(dst_path):
                 os.mkdir(dst_path)
             label_path = os.path.join(dst_path, n+'_{}_{}.png'.format(x1, y1))

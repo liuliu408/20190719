@@ -9,7 +9,7 @@ np.set_printoptions(threshold=np.inf) #print not show ...
 Image.MAX_IMAGE_PIXELS = 100000000000
 
 use_cuda = True
-model = tc.load('/home/liuq/wind/agriculture/231717_LQ2/model_train/model200.pth')
+model = tc.load('/home/liuq/wind/agriculture/231717_liuq/model_train/model200.pth')
 device = tc.device("cuda" if use_cuda else "cpu")
 model = model.to(device)
 model.eval()

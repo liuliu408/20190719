@@ -86,7 +86,7 @@ if __name__ == "__main__":
 	for i in range(3, 5):
 		size = 1024  # 切割为1024*1024
 		image_path = '/home/liuq/wind/agriculture/origin_data/test_data/image_{}.png'.format(i)
-		dst_Path = '/home/liuq/wind/agriculture/231717_LQ2/data/img{}_split_{}/'.format(i, size)
+		dst_Path = '/home/liuq/wind/agriculture/231717_liuq/data/img{}_split_{}/'.format(i, size)
 
 		if not os.path.exists(dst_Path):
 			os.makedirs(dst_Path)
@@ -98,9 +98,9 @@ if __name__ == "__main__":
 	# ==========================================================================
 	# 将测试的小图拼接为大图测试
 	for i in range(3, 5):
-		src_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/img{}_predict_{}/".format(i,
+		src_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/img{}_predict_{}/".format(i,
 						time.strftime("%Y-%m-%d",time.localtime()))
-		dst_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/predict_result_img"
+		dst_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/predict_result_img"
 
 		if not os.path.exists(dst_path):
 			os.mkdir(dst_path)
