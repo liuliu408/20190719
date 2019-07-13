@@ -53,7 +53,7 @@ def split_image(number, size, ratio = 0.5):
             data_path = os.path.join(dst_path, n + '_{}.png'.format(num))
 
             # _img1 = np.zeros((size, size, 3)).astype(np.int32)
-            # _img1[:, :, :] = img1[:, :, :3]                       # 只取前面三个通道数据：RGB
+            # _img1[:, :, :] = img1[:, :, :3]                       # 只取前面三个通道数据：RGB，由于训练只需要3通道RGB图
             # _img1 = Image.fromarray(np.uint8(_img1))
             # _img1.save(data_path)
             # 下面2行 和 上面4行 代码等效
