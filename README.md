@@ -5,3 +5,7 @@ score:0.2357
 第二次提交：test_submit_lq.py
 先将大图切割为512 *512 的小图，然后再依次送入预测！
 score:0.2455
+
+
+!inmage(https://github.com/liuliu408/20190719/blob/master/utils/image_3_resize.png)
+!inmage(https://github.com/liuliu408/20190719/blob/master/utils/image_4_resize.png)
