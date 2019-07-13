@@ -1,3 +1,5 @@
+参考来源：https://github.com/wzlj/Learning/tree/master/231717
+
 第一次提交：test_submit.py
 直接读取大图，一边取512*512块，一边预测！
 score:0.2357
