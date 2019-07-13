@@ -1,5 +1,5 @@
 # coding:utf-8
-# 2019.06.20 刘强 四川大学614实验室
+# 2019.07.12 刘强 四川大学614实验室
 import os
 from PIL import Image
 import time
