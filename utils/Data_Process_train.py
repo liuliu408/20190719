@@ -43,13 +43,13 @@ def split_image(number, size):
             if not os.path.exists(dst_path):
                 os.mkdir(dst_path)
             data_path = os.path.join(dst_path, n + '_{}.png'.format(num))
-            # img.crop(box).save(data_path)
+            img.crop(box).save(data_path)
 
             dst_path = '/home/liuq/wind/agriculture/label{}/'.format(size)
             if not os.path.exists(dst_path):
                 os.mkdir(dst_path)
             label_path = os.path.join(dst_path, n + '_{}.png'.format(num))
-            # img_label.crop(box).save(label_path)
+            img_label.crop(box).save(label_path)
 
     print('图片切割完毕，共生成 %s 张小图片。' % num)
     print("切割耗时：%s" % (time.time() - timestart))
