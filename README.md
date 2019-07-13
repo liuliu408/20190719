@@ -7,5 +7,5 @@ score:0.2357
 score:0.2455
 
 
-!inmage(https://github.com/liuliu408/20190719/blob/master/utils/image_3_resize.png)
-!inmage(https://github.com/liuliu408/20190719/blob/master/utils/image_4_resize.png)
+!image(https://github.com/liuliu408/20190719/blob/master/utils/image_3_resize.png)
+!image(https://github.com/liuliu408/20190719/blob/master/utils/image_4_resize.png)
