@@ -7,18 +7,16 @@ import os
 import cv2
 import time
 
-np.set_printoptions(threshold=np.inf) #print not show ...
+np.set_printoptions(threshold=np.inf)  # print not show ...
 Image.MAX_IMAGE_PIXELS = 100000000000
 
-use_cuda = True
 model = tc.load('/home/liuq/wind/agriculture/231717_LQ2/model_train/model200.pth')
-device = tc.device("cuda" if use_cuda else "cpu")
-model = model.to(device)
-model.eval()
 
 # 分割预测
 def test(model, src_path, dst_path):
     timestart = time.time()
+    model.eval()
+
     imagelist = os.listdir(src_path)
     imgNum = int(len(imagelist))
     imagelist.sort(key=lambda x: int(x.split('.')[0].split('_')[-1]))
@@ -104,6 +102,10 @@ def visualize(src_img, dst_img):
 if __name__ == "__main__":
     # --------------------------------------------------------------------------------------------------------
     # 预测
+    use_cuda = True
+    device = tc.device("cuda" if use_cuda else "cpu")
+    model = model.to(device)
+
     for i in range(3, 5):
         src_path = "/home/liuq/wind/agriculture/231717_LQ2/data/img{}_split_1024".format(i)
         dst_path = "/home/liuq/wind/agriculture/231717_LQ2/model_train/img{}_predict_{}/".format(i,
