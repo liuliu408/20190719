@@ -52,10 +52,13 @@ def split_image(number, size, ratio = 0.5):
                 os.mkdir(dst_path)
             data_path = os.path.join(dst_path, n + '_{}.png'.format(num))
 
-            _img1 = np.zeros((size, size, 3)).astype(np.int32)
-            _img1[:, :, :] = img1[:, :, :3]  # 只取前面三个通道数据：RGB
-            _img1 = Image.fromarray(np.uint8(_img1))
-            _img1.save(data_path)
+            # _img1 = np.zeros((size, size, 3)).astype(np.int32)
+            # _img1[:, :, :] = img1[:, :, :3]                       # 只取前面三个通道数据：RGB
+            # _img1 = Image.fromarray(np.uint8(_img1))
+            # _img1.save(data_path)
+            # 下面2行 和 上面4行 代码等效
+            img1 = Image.fromarray(img1).convert('RGB')             # 只取前面三个通道数据：RGB
+            img1.save(data_path)
 
             dst_path = '/home/liuq/wind/agriculture/label{}/'.format(size)
             if not os.path.exists(dst_path):
@@ -65,12 +68,11 @@ def split_image(number, size, ratio = 0.5):
             _img_label = img_label.crop(box)
             _img_label = np.asanyarray(_img_label)
 
-            _img_label = Image.fromarray(_img_label).convert('L')
+            _img_label = Image.fromarray(_img_label).convert('L')   # 转为灰度图
             _img_label.save(label_path)
 
     print('图片切割完毕，共生成 %s 张小图片。' % num)
     print("切割耗时：%s" % (time.time() - timestart))
-
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 if __name__ == "__main__":
@@ -81,4 +83,3 @@ if __name__ == "__main__":
 
     split_image(1, 1024, 0.4)   # 图片切割完毕，共生成 92 * 97=8924 张小图, 耗时：409.236145734787
     split_image(2, 1024, 0.4)   # 图片切割完毕，共生成 150*88=13439 张小图, 耗时：688.1491384506226
-
