@@ -99,7 +99,7 @@ def visualize(src_img, dst_img):
     anno_vis = cv2.resize(anno_vis, None, fx=0.1, fy=0.1)
     cv2.imwrite(dst_img, anno_vis)
     print("visulization of {} is done".format(src_img))
-    print("图可视化耗时：%s" % (time.time()-timestart))
+    print("可视化耗时：%s" % (time.time()-timestart))
 
 if __name__ == "__main__":
     # --------------------------------------------------------------------------------------------------------
