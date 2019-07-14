@@ -43,16 +43,16 @@ def test(model, src_path, dst_path):
                 if j == col_count - 1:
                     x2 = width - x1
 
-                if (img[x1:x2, y1:y2, :3] == 0).sum() < step * step * 3 - 10 * 3:
-                    _img[:y2 - y1, :x2 - x1, :] = img[y1:y2, x1:x2, :3]
-                    _img = np.array(_img).transpose([2, 0, 1])
-                    # predict
-                    x = tc.from_numpy(_img / 255.0).float()
-                    x = x.unsqueeze(0).to(device)
-                    rr = model.forward(x)
-                    rr = rr.detach()[0, :, :, :].cpu()
-                    r = tc.argmax(rr, 0).byte().numpy()
-                    data[y1:y2, x1:x2] = r[:y2 - y1, :x2 - x1]
+                # if (img[x1:x2, y1:y2, :3] == 0).sum() < step * step * 3 - 10 * 3:
+                _img[:y2 - y1, :x2 - x1, :] = img[y1:y2, x1:x2, :3]
+                _img = np.array(_img).transpose([2, 0, 1])
+                # predict
+                x = tc.from_numpy(_img / 255.0).float()
+                x = x.unsqueeze(0).to(device)
+                rr = model.forward(x)
+                rr = rr.detach()[0, :, :, :].cpu()
+                r = tc.argmax(rr, 0).byte().numpy()
+                data[y1:y2, x1:x2] = r[:y2 - y1, :x2 - x1]
 
         imgx = Image.fromarray(data).convert('L')
         predict_path = os.path.join(dst_path, file.split('.')[0]+'_predict.png')

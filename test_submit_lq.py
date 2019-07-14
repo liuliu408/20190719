@@ -10,7 +10,7 @@ import time
 np.set_printoptions(threshold=np.inf)  # print not show ...
 Image.MAX_IMAGE_PIXELS = 100000000000
 
-model = tc.load('/home/liuq/wind/agriculture/231717_liuq/model_train/model200.pth')
+model = tc.load('/home/liuq/wind/agriculture/231717_liuq/model_train/model99.pth')
 
 # 分割预测
 def test(model, src_path, dst_path):
@@ -51,7 +51,7 @@ def image_compose(ImagePath, width, height, saved_path):
     timestart = time.time()
     print('开始处理图片拼接, 请稍候...')
     Image_FORMAT = ['.jpg', '.JPG', '.png']  # 图片格式
-    Image_SIZE = 1024                         # 小图大小为512*512
+    Image_SIZE = 512                         # 小图大小为512*512
     Image_Col = width // Image_SIZE          # 图片间隔，也就是合并成一张图后，一共有几列
     Image_Row = height // Image_SIZE         # 图片间隔，也就是合并成一张图后，一共有几行
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     model = model.to(device)
 
     for i in range(3, 5):
-        src_path = "/home/liuq/wind/agriculture/231717_liuq/data/img{}_split_1024".format(i)
+        src_path = "/home/liuq/wind/agriculture/231717_liuq/data/img{}_split_512".format(i)
         dst_path = "/home/liuq/wind/agriculture/231717_liuq/model_train/img{}_predict_{}/".format(i,
                     time.strftime("%Y-%m-%d", time.localtime()))
 
